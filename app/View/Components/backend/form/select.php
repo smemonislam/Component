@@ -7,7 +7,6 @@ use Illuminate\View\Component;
 class select extends Component
 {
     public $id;
-    public $label;
     public $class;
     public $name;
     public $value;
@@ -17,10 +16,9 @@ class select extends Component
      *
      * @return void
      */
-    public function __construct( $id=null, $label=null, $class=null, $name=null, $value=null, $options=null )
+    public function __construct( $id=null, $class=null, $name=null, $value=null, $options=null )
     {
         $this->id       = $id;
-        $this->label    = $label;
         $this->class    = $class;
         $this->name     = $name;
         $this->value    = $value;

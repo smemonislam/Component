@@ -70,7 +70,7 @@ class UserController extends Controller
 
             $this->getSuccessMessage( 'User Added Successfully!' );
 
-            return redirect()->route('admin.users.create');
+            return redirect()->route('admin.users.index');
 
         }catch( Exception $e){
             $this->getErrorMessage( $e->getMessage() );
@@ -109,9 +109,45 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $validator = Validator::make( $request->all(), [
+            'name'      => 'required|max:255|unique:users,name,' .$user->id,
+            'email'     => 'required|email|unique:users,email,'.$user->id,
+            'phone'     => 'required|numeric|digits:11',
+            'address'   => 'required|max:255',
+            'group_id'  => 'required|numeric',
+            'admin_id'  => 'numeric',
+        ]);
+       
+
+        if ($validator->fails()) {
+            return redirect()
+                        ->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        $data = [
+            'admin_id'   => $request->input('admin_id'),
+            'group_id'   => $request->input('group_id'),
+            'name'       => $request->input('name'),
+            'email'      =>$request->input('email'),
+            'phone'      => $request->input('phone'),
+            'address'    => $request->input('address'),
+        ];
+
+        try{
+            $user->update($data);
+
+            $this->getSuccessMessage( 'User Update Successfully!' );
+
+            return redirect()->route('admin.users.index');
+
+        }catch( Exception $e){
+            $this->getErrorMessage( $e->getMessage() );
+            return redirect()->back();
+        }
     }
 
     /**
@@ -120,8 +156,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        $this->getSuccessMessage( 'User Delete Successfully!' );
+        
+        return redirect()->route('admin.users.index');
     }
 }

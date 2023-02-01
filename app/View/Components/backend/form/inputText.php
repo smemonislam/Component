@@ -11,7 +11,6 @@ class inputText extends Component
     public $name;
     public $value;
     public $class;
-    public $label;
     public $placeholder;
     
     /**
@@ -19,14 +18,13 @@ class inputText extends Component
      *
      * @return void
      */
-    public function __construct( $id=null, $name=null, $type=null, $value=null, $class=null, $label=null, $placeholder=null )
+    public function __construct( $id=null, $name=null, $type=null, $value=null, $class=null, $placeholder=null )
     {
         $this->id           = $id;
         $this->type         = $type;
         $this->name         = $name;
         $this->value        = $value;
         $this->class        = $class;
-        $this->label        = $label;
         $this->placeholder  = $placeholder;
     }
 

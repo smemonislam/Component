@@ -17,6 +17,7 @@
                                 <a href="{{ route('admin.users.create') }}" class="btn btn-info"><i class="fa fa-plus"></i> Add new user</a>
                             </x-card-header>
                             <div class="card-body">
+                                <x-backend.message></x-backend.message>
                                 <div class="table-responsive">
                                     <x-table :headers="['SL', 'Group', 'Name', 'Email', 'Phone', 'Address', 'Action']">
                                         @foreach ($users as $user)
@@ -28,8 +29,15 @@
                                                 <x-td>{{ $user->phone }}</x-td>
                                                 <x-td>{{ $user->address }}</x-td>
                                                 <x-td>
-                                                    <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                                                    <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                                                    <x-form action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
+                                                        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                                        @method('DELETE')
+                                                        <x-btn 
+                                                            type="submit"
+                                                            class="btn btn-danger btn-sm"
+                                                            btnText="Delete "
+                                                        />
+                                                    </x-form>
                                                 </x-td>
                                             </tr>
                                         @endforeach                                        
