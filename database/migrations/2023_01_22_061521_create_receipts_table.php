@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('receipts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('admin_id')->nullable()->onDelete('cascade');
-            $table->foreignId('group_id')->onDelete('cascade');
-            $table->string('name', 32);
-            $table->string('email', 64)->unique();
-            $table->string('phone', 15)->nullable();
-            $table->string('address', 200)->nullable();
+            $table->foreignId('user_id')->onDelete('cascade');
+            $table->double('amount');
+            $table->date('date');
+            $table->string('note');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('receipts');
     }
 };

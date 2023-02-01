@@ -18,11 +18,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'admin_id', 
+        'group_id',
         'name',
         'email',
-        'password',
+        'phone', 
+        'address'
     ];
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -41,4 +43,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function group(){
+        return $this->belongsTo(Group::class);
+    }
 }
