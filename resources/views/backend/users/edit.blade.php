@@ -17,6 +17,15 @@
                                 <a href="{{ route('admin.users.index') }}" class="btn btn-info"><i class="fa fa-plus"></i> Back</a>
                             </x-card-header>
                             <div class="card-body">
+                                
+                                <x-select 
+                                    id="inputSelect" 
+                                    label="Group" 
+                                    name="gruop_id" 
+                                    class="form-control"
+                                    :options="$groups"
+                                    value="{{ $user->group_id }}"
+                                />
                                 <x-form action="{{ route('admin.users.edit', $user->id) }}" method="POST">
                                     <x-input-text
                                         id="inputName"
@@ -51,7 +60,8 @@
                                         value="{{ $user->address }}"
                                         class="form-control"
                                         label="Address"
-                                        rows="3"                                 />
+                                        rows="3"       
+                                    />
 
                                     <x-btn 
                                         type="submit"

@@ -18,9 +18,11 @@
                             </x-card-header>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <x-table :headers="['Name', 'Email', 'Phone', 'Address', 'Action']">
+                                    <x-table :headers="['SL', 'Group', 'Name', 'Email', 'Phone', 'Address', 'Action']">
                                         @foreach ($users as $user)
                                             <tr>
+                                                <x-td>{{ $loop->iteration }}</x-td>
+                                                <x-td>{{ $user->group->title }}</x-td>
                                                 <x-td>{{ $user->name }}</x-td>
                                                 <x-td>{{ $user->email }}</x-td>
                                                 <x-td>{{ $user->phone }}</x-td>

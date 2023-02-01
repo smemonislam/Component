@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Group;
 class UserController extends Controller
 {
     /**
@@ -13,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::with('group')->get();
         return view()->exists('backend.users.index') ? view('backend.users.index', compact('users')) : abort(404);
     }
 
@@ -55,9 +56,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit( User $user)
+    public function edit( User $user )
     {
-        return view()->exists('backend.users.edit') ? view('backend.users.edit', compact('user')) : abort(404);
+        $groups = Group::all();
+        return view()->exists('backend.users.edit') ? view('backend.users.edit', compact('user', 'groups')) : abort(404);
     }
 
     /**

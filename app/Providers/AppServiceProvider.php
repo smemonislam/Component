@@ -17,6 +17,7 @@ use App\View\Components\Backend\form\inputText;
 use App\View\Components\Backend\form\btn;
 use App\View\Components\Backend\form\label;
 use App\View\Components\backend\form\textArea;
+use App\View\Components\backend\form\select;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -50,5 +51,6 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('btn', btn::class);
         Blade::component('label', label::class);
         Blade::component('text-area', textArea::class);
+        Blade::component('select', select::class);
     }
 }
