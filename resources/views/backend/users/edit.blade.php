@@ -16,8 +16,7 @@
                             <x-card-header title="Update User">
                                 <a href="{{ route('admin.users.index') }}" class="btn btn-info"><i class="fa fa-plus"></i> Back</a>
                             </x-card-header>
-                            <div class="card-body">
-                                
+                            <div class="card-body">                                
                                 <x-select 
                                     id="inputSelect" 
                                     label="Group" 
