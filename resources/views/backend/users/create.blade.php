@@ -15,9 +15,27 @@
                         <div class="card shadow mb-4 p-3">
                             <x-card-header title="Add new user">
                                 <a href="{{ route('admin.users.index') }}" class="btn btn-info"><i class="fa fa-plus"></i> Back</a>
-                            </x-card-header>
+                            </x-card-header>                            
                             <div class="card-body">
+                                <x-backend.message></x-backend.message>
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 <x-form action="{{ route('admin.users.store') }}" method="POST">
+                                    <x-select 
+                                        id="inputSelect" 
+                                        label="Group" 
+                                        name="group_id" 
+                                        class="form-control"
+                                        :options="$groups"
+                                        value=""
+                                    />
                                     <x-input-text
                                         id="inputName"
                                         type="text"
