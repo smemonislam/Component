@@ -30,7 +30,8 @@
                                                 <x-td>{{ $user->address }}</x-td>
                                                 <x-td>
                                                     <x-form action="{{ route('admin.users.destroy', $user->id) }}" method="POST">
-                                                        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                                        <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-primary btn-sm">Show</a>
+                                                        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-info btn-sm">Edit</a>
                                                         @method('DELETE')
                                                         <x-btn 
                                                             type="submit"
