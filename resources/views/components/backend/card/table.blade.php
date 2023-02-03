@@ -2,14 +2,14 @@
     <thead>
         <tr>
             @foreach( $headers as $item )
-            <th>{{ $item }}</th>
+            <th class="{{ $item['clasess'] }}">{{ $item['name'] }}</th>
             @endforeach
         </tr>
     </thead>
     <tfoot>
         <tr>
             @foreach( $headers as $item )
-            <th>{{ $item }}</th>
+            <th class="{{ $item['clasess'] }}">{{ $item['name'] }}</th>
             @endforeach
         </tr>
     </tfoot>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GroupController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +20,5 @@ Route::get('/', function () {
 
 Route::name('admin.')->group(function(){
     Route::resource('/users', UserController::class);
+    Route::resource('/groups', GroupController::class);
 });
