@@ -14,7 +14,7 @@
                     <x-content>
                         <div class="card shadow mb-4 p-3">
                             <x-card-header title="Add new user">
-                                <a href="{{ route('admin.users.index') }}" class="btn btn-info"><i class="fa fa-plus"></i> Back</a>
+                                <a href="{{ route('admin.users.index') }}" class="btn btn-info"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
                             </x-card-header>                            
                             <div class="card-body">
                                 

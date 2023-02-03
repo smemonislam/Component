@@ -30,12 +30,13 @@
                                                 <x-td>{{ $product->price }}</x-td>
                                                 <x-td align="right">
                                                     <x-form action="{{ route('admin.products.destroy', $product->id) }}" method="POST">
+                                                        <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-primary btn-sm">Show</a>
                                                         <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-info btn-sm">Edit</a>
                                                         @method('DELETE')
                                                         <x-btn 
                                                             type="submit"
                                                             class="btn btn-danger btn-sm"
-                                                            btnText="Delete "
+                                                            btnText="Delete"
                                                         />
                                                     </x-form>
                                                 </x-td>

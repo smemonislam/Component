@@ -1,4 +1,4 @@
-<x-master title="Home Page">
+<x-master title="User Details">
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
@@ -14,7 +14,11 @@
                     <x-content>
                         <div class="card shadow mb-4">
                             <x-card-header title="Users Details">
-                                <a href="{{ route('admin.users.index') }}" class="btn btn-info"><i class="fa fa-plus"></i> Back</a>
+                                <a class="btn btn-info" href="#"> <i class="fa fa-plus"></i> New Sale </a>
+                                <a class="btn btn-info" href="#"> <i class="fa fa-plus"></i> New Purchase </a>
+                                <a class="btn btn-info" href="#"> <i class="fa fa-plus"></i> New Payment </a>
+                                <a class="btn btn-info" href="#"> <i class="fa fa-plus"></i> New Receipt </a>
+                                <a href="{{ route('admin.users.index') }}" class="btn btn-info"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
                             </x-card-header>
                             <div class="card-body">
                                 <x-list-profile 
