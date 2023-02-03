@@ -82,9 +82,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        //
+        $categories = Category::all();
+        return view()->exists('backend.product.show') ? view('backend.product.show', compact('product', 'categories')) : abort(404);
     }
 
     /**

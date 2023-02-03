@@ -1,4 +1,4 @@
-<x-master title="User Details">
+<x-master title="User">
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
@@ -21,17 +21,29 @@
                                 <a href="{{ route('admin.users.index') }}" class="btn btn-info"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
                             </x-card-header>
                             <div class="card-body">
-                                <x-list-profile 
-                                    :headers="[
-                                        'group'     => 'Group:', 
-                                        'name'      => 'Name:', 
-                                        'email'     => 'Email:', 
-                                        'phone'     => 'Phone:', 
-                                        'address'   => 'Address:'
-                                    ]"
-                                    :user="$user"
-                                    class="font-weight-bold text-capitalize"
-                                >
+                                <x-list-profile>
+                                    <table class="table table-borderless table-striped">
+                                        <tr>
+                                            <th class="text-right">Group :</th>
+                                            <td> {{ $user->group->title }} </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-right">Name : </th>
+                                            <td> {{ $user->name }} </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-right">Email: </th>
+                                            <td> {{ $user->email }} </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-right">Phone : </th>
+                                            <td> {{ $user->phone }} </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-right">Address : </th>
+                                            <td> {{ $user->address }} </td>
+                                        </tr>
+                                   </table>
                                 </x-list-profile>                                
                             </div>
                         </div>  

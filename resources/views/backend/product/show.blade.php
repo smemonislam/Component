@@ -13,22 +13,34 @@
                 <div class="container-fluid">
                     <x-content>
                         <div class="card shadow mb-4">
-                            <x-card-header title="Users Details">
-                                <a href="{{ route('admin.users.index') }}" class="btn btn-info"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
+                            <x-card-header title="products Details">
+                                <a href="{{ route('admin.products.index') }}" class="btn btn-info"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
                             </x-card-header>
                             <div class="card-body">
-                                <x-list-profile 
-                                    :headers="[
-                                        'group'     => 'Group:', 
-                                        'name'      => 'Name:', 
-                                        'email'     => 'Email:', 
-                                        'phone'     => 'Phone:', 
-                                        'address'   => 'Address:'
-                                    ]"
-                                    :user="$user"
-                                    class="font-weight-bold text-capitalize"
-                                >
-                                </x-list-profile>                                
+                                <x-list-profile>
+                                    <table class="table table-borderless table-striped">
+                                        <tr>
+                                            <th class="text-right">Category :</th>
+                                            <td> {{ $product->category->title }} </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-right">Title : </th>
+                                            <td> {{ $product->title }} </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-right">Description: </th>
+                                            <td> {{ $product->description }} </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-right">Cost Price : </th>
+                                            <td> {{ $product->cost_price }} </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-right">Sale Price : </th>
+                                            <td> {{ $product->price }} </td>
+                                        </tr>
+                                   </table>
+                                </x-list-profile>                                  
                             </div>
                         </div>  
                     </x-content>                   

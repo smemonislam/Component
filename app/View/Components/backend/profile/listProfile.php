@@ -14,11 +14,9 @@ class listProfile extends Component
      *
      * @return void
      */
-    public function __construct( $user=null, $class=null, $headers )
+    public function __construct(  )
     {
-        $this->user = $user;
-        $this->class = $class;
-        $this->headers = $headers;
+ 
     }
 
     /**
