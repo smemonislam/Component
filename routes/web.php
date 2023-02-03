@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +22,7 @@ Route::get('/', function () {
 
 Route::name('admin.')->group(function(){
     Route::resource('/users', UserController::class);
-    Route::resource('/groups', GroupController::class);
-    Route::resource('/category', CategoryController::class);
+    Route::resource('/groups', GroupController::class)->except('show');
+    Route::resource('/category', CategoryController::class)->except('show');
+    Route::resource('/products', ProductController::class);
 });

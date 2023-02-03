@@ -97,7 +97,7 @@ class GroupController extends Controller
     public function update(Request $request, Group $group)
     {
         $validator = Validator::make( $request->all(), [
-            'title'      => 'required|max:255|unique:groups,title',
+            'title'      => 'required|max:255|unique:groups,title, '.$group->id,
         ]);       
 
         if ($validator->fails()) {
