@@ -8,15 +8,17 @@ class form extends Component
 {
     public $action;
     public $method;
+    public $class;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct( $action=null, $method=null)
+    public function __construct( $action=null, $method=null, $class=null )
     {
         $this->action = $action;
         $this->method = $method;
+        $this->class = $class;
     }
 
     /**

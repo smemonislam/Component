@@ -13,7 +13,27 @@
                 <div class="container-fluid">
                     <x-content>
                         <!-- Page Heading -->
-                        <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>    
+                        <x-list-profile>
+                            <table class="table table-borderless table-striped">
+                                <tr>
+                                    <th class="text-right">User Name :</th>
+                                    <td> {{ Auth::user()->name }} </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-right">Email : </th>
+                                    <td> {{ Auth::user()->email }}</td>
+                                </tr>
+                                <tr>
+                                    <th class="text-right">Phone: </th>
+                                    <td> {{ Auth::user()->phone }} </td>
+                                </tr>
+                                <tr>
+                                    <th class="text-right">Address : </th>
+                                    <td> {{ Auth::user()->address }} </td>
+                                </tr>
+                           </table>
+                        </x-list-profile>  
+                         
                     </x-content>                   
                 </div>
                 <!-- /.container-fluid -->
