@@ -12,11 +12,16 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <x-content>
-                        <div class="card shadow mb-4">
-                            <x-card-header title="products Details">
-                                <a href="{{ route('admin.products.index') }}" class="btn btn-info"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
-                            </x-card-header>
-                            <div class="card-body">
+                        <x-top-header 
+                            title="Products Information" 
+                            class="btn btn-info" 
+                            href="{{ route('admin.products.index') }}"
+                            content="Back"
+                            icon="fas fa-arrow-alt-circle-left"
+                        />
+                        <div class="card shadow mb-4"> 
+                            <x-card-header title="{{ $product->title }}"/>                           
+                            <x-card-body>
                                 <x-list-profile>
                                     <table class="table table-borderless table-striped">
                                         <tr>
@@ -41,7 +46,7 @@
                                         </tr>
                                    </table>
                                 </x-list-profile>                                  
-                            </div>
+                            </x-card-body>
                         </div>  
                     </x-content>                   
                 </div>

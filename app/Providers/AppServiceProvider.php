@@ -11,13 +11,16 @@ use App\View\Components\Backend\partials\content;
 use App\View\Components\Backend\partials\footer;
 use App\View\Components\Backend\card\table;
 use App\View\Components\Backend\card\td;
+use App\View\Components\backend\card\topHeader;
 use App\View\Components\Backend\card\cardHeader;
+use App\View\Components\Backend\card\cardBody;
 use App\View\Components\Backend\form\form;
 use App\View\Components\Backend\form\inputText;
 use App\View\Components\Backend\form\btn;
 use App\View\Components\Backend\form\label;
 use App\View\Components\backend\form\textArea;
 use App\View\Components\backend\form\select;
+use App\View\Components\backend\form\error;
 use App\View\Components\backend\profile\listProfile;
 
 class AppServiceProvider extends ServiceProvider
@@ -45,7 +48,9 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('content', content::class);
         Blade::component('footer', footer::class);
         Blade::component('table', table::class);
+        Blade::component('top-header', topHeader::class);
         Blade::component('card-header', cardHeader::class);
+        Blade::component('card-body', cardBody::class);
         Blade::component('td', td::class);
         Blade::component('form', form::class);
         Blade::component('input-text', inputText::class);
@@ -53,6 +58,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('label', label::class);
         Blade::component('text-area', textArea::class);
         Blade::component('select', select::class);
+        Blade::component('error', error::class);
         Blade::component('list-profile', listProfile::class);
     }
 }

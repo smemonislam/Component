@@ -12,11 +12,16 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <x-content>
+                        <x-top-header 
+                            title="Products List" 
+                            class="btn btn-info" 
+                            href="{{ route('admin.products.create') }}"
+                            content="Add new product"
+                            icon="fa fa-plus"
+                        />
                         <div class="card shadow mb-4">
-                            <x-card-header title="Product Details">
-                                <a href="{{ route('admin.products.create') }}" class="btn btn-info"><i class="fa fa-plus"></i> Add new category</a>
-                            </x-card-header>
-                            <div class="card-body">
+                            <x-card-header title="Products"/>                           
+                            <x-card-body>
                                 <x-backend.message></x-backend.message>
                                 <div class="table-responsive">
                                     <x-table :headers="['SL', 'Category', 'Title', 'Description', 'Cost Price', 'Price', ['name' => 'Action', 'align' => 'right'] ]">
@@ -44,7 +49,7 @@
                                         @endforeach                                        
                                     </x-table>
                                 </div>
-                            </div>
+                            </x-card-body>
                         </div>
                     </x-content>                   
                 </div>

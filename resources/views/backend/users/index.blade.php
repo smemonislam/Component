@@ -12,11 +12,16 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <x-content>
+                        <x-top-header 
+                            title="Users List" 
+                            class="btn btn-info" 
+                            href="{{ route('admin.users.create') }}"
+                            content="Add new user"
+                            icon="fa fa-plus"
+                        />
                         <div class="card shadow mb-4">
-                            <x-card-header title="Users List">
-                                <a href="{{ route('admin.users.create') }}" class="btn btn-info"><i class="fa fa-plus"></i> Add new user</a>
-                            </x-card-header>
-                            <div class="card-body">
+                            <x-card-header title="Users"/>
+                            <x-card-body>
                                 <x-backend.message></x-backend.message>
                                 <div class="table-responsive">
                                     <x-table :headers="['SL', 'Group', 'Name', 'Email', 'Phone', 'Address', 'Action']">
@@ -44,7 +49,7 @@
                                         @endforeach                                        
                                     </x-table>
                                 </div>
-                            </div>
+                            </x-card-body>
                         </div>
                     </x-content>                   
                 </div>

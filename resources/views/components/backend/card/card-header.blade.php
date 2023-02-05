@@ -1,9 +1,3 @@
-<div class="row clearfix page_header p-3">
-    <div class="col-md-4">
-        <h2>{{ $title }}</h2>		
-    </div>
-
-    <div class="col-md-8 text-right">
-        {{ $slot }}
-    </div>
-</div>
+<div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary"> {{ $title }} </h6>
+</div> 

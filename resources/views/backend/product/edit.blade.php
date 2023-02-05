@@ -12,22 +12,17 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <x-content>
+                        <x-top-header 
+                            title="Update Product" 
+                            class="btn btn-info" 
+                            href="{{ route('admin.products.index') }}"
+                            content="Back"
+                            icon="fas fa-arrow-alt-circle-left"
+                        />
                         <div class="card shadow mb-4 p-3">
-                            <x-card-header title="Update Product">
-                                <a href="{{ route('admin.products.index') }}" class="btn btn-info"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
-                            </x-card-header>
-                            <div class="card-body">
-                                <x-backend.message></x-backend.message>
-                                @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif                                
-                                
+                            <x-card-header title="{{ $product->title }}"/>
+                            <x-card-body>
+                                <x-error></x-error>
                                 <x-form action="{{ route('admin.products.update', $product->id) }}" method="POST">
                                     @method('PUT')  
 
@@ -65,7 +60,7 @@
                                                 name="description"
                                                 value="{{ $product->description }}"
                                                 class="form-control"
-                                                rows="3"       
+                                                rows="4"       
                                             />
                                         </div>
                                     </div>
@@ -101,7 +96,7 @@
                                     </div>
                                                                         
                                 </x-form>
-                            </div>
+                            </x-card-body>
                         </div>
                     </x-content>                   
                 </div>

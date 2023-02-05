@@ -12,11 +12,16 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <x-content>
+                        <x-top-header 
+                            title="Group List" 
+                            class="btn btn-info" 
+                            href="{{ route('admin.groups.create') }}"
+                            content="Add new group"
+                            icon="fa fa-plus"
+                        />
                         <div class="card shadow mb-4">
-                            <x-card-header title="Group List">
-                                <a href="{{ route('admin.groups.create') }}" class="btn btn-info"><i class="fa fa-plus"></i> Add new group</a>
-                            </x-card-header>
-                            <div class="card-body">
+                            <x-card-header title="Add new group"/>                           
+                            <x-card-body>
                                 <x-backend.message></x-backend.message>
                                 <div class="table-responsive">
                                     <x-table :headers="['SL', 'Title', ['name' => 'Action', 'align' => 'right'] ]">
@@ -39,7 +44,7 @@
                                         @endforeach                                        
                                     </x-table>
                                 </div>
-                            </div>
+                            </x-card-body>
                         </div>
                     </x-content>                   
                 </div>

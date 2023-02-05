@@ -12,25 +12,19 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <x-content>
+                        <x-top-header 
+                            title="Update Group" 
+                            class="btn btn-info" 
+                            href="{{ route('admin.groups.index') }}"
+                            content="Back"
+                            icon="fas fa-arrow-alt-circle-left"
+                        />
                         <div class="card shadow mb-4 p-3">
-                            <x-card-header title="Update Group">
-                                <a href="{{ route('admin.groups.index') }}" class="btn btn-info"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
-                            </x-card-header>
-                            <div class="card-body">
-                                <x-backend.message></x-backend.message>
-                                @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif                                
-                                
+                            <x-card-header title="{{ $group->title }}"/>
+                            <x-card-body>
+                                <x-error></x-error>
                                 <x-form action="{{ route('admin.groups.update', $group->id) }}" method="POST">
-                                    @method('PUT')
-                                    
+                                    @method('PUT')                                    
                                     <div class="form-group row">
                                         <x-label for="inputName" class="col-sm-2 col-form-label" label="Group Name"></x-label>
                                         <div class="col-sm-10">
@@ -48,10 +42,9 @@
                                         <div class="col-sm-10 offset-sm-2">
                                             <x-btn type="submit" class="btn btn-primary" btnText="Update"/>
                                         </div>
-                                    </div>
-                                                                        
+                                    </div>                                                                        
                                 </x-form>
-                            </div>
+                            </x-card-body>
                         </div>
                     </x-content>                   
                 </div>

@@ -12,21 +12,17 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <x-content>
-                        <div class="card shadow mb-4 p-3">
-                            <x-card-header title="Add new category">
-                                <a href="{{ route('admin.category.index') }}" class="btn btn-info"><i class="fas fa-arrow-alt-circle-left"></i> Back</a>
-                            </x-card-header>                            
-                            <div class="card-body">
-                                
-                                @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
+                        <x-top-header 
+                            title="Add new category" 
+                            class="btn btn-info" 
+                            href="{{ route('admin.category.index') }}"
+                            content="Back"
+                            icon="fas fa-arrow-alt-circle-left"
+                        />
+                        <div class="card shadow mb-4 p-3">                           
+                            <x-card-header title="Add New Product"/>                        
+                            <x-card-body>
+                                <x-error></x-error>
                                 <x-form action="{{ route('admin.category.store') }}" method="POST">
                                     <div class="form-group row">
                                         <x-label for="inputName" class="col-sm-2 col-form-label" label="Category Name"></x-label>
@@ -46,7 +42,7 @@
                                         </div>
                                     </div>                                   
                                 </x-form>
-                            </div>
+                            </x-card-body>
                         </div>
                     </x-content>                   
                 </div>
