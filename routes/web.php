@@ -18,15 +18,16 @@ use App\Http\Controllers\UserSalesController;
 |
 */
 
-Route::get('/', [LoginController::class, 'index'])->name('login');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('login.confirm');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->name('admin.')->group( function(){
-    Route::get('/dashboard', function () {
+    Route::get('/', function () {
         return view('backend.index');
-    });  
+    });
 
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+    
     Route::resource('/users', UserController::class);
     Route::resource('/groups', GroupController::class)->except('show');
     Route::resource('/category', CategoryController::class)->except('show');
